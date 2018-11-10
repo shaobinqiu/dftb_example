@@ -1,0 +1,106 @@
+Geometry = GenFormat {
+28 S
+C
+1    1     -3.255920    -5.639419                0.000000
+2    1     -3.143175    -1.901504                0.000000
+3    1     -2.790789    -3.222525                0.000000
+4    1     -1.282649    -3.512767                0.000000
+5    1     -0.930263    -4.833788                0.000000
+6    1      0.577877    -5.124029                0.000000
+7    1     -2.678043     0.515390                0.000000
+8    1     -2.325657    -0.805631                0.000000
+9    1     -0.817517    -1.095873                0.000000
+10   1     -0.465131    -2.416894                0.000000
+11   1      1.043008    -2.707135                0.000000
+12   1      1.395394    -4.028156                0.000000
+13   1      2.903534    -4.318398                0.000000
+14   1     -2.212912     2.932283                0.000000
+15   1     -1.860526     1.611263                0.000000
+16   1     -0.352386     1.321021                0.000000
+17   1      0.000000     0.000000                0.000000
+18   1      1.508140    -0.290242                0.000000
+19   1      1.860526    -1.611263                0.000000
+20   1     -1.747780     5.349177                0.000000
+21   1     -1.395394     4.028156                0.000000
+22   1      0.112745     3.737915                0.000000
+23   1      0.465131     2.416894                0.000000
+24   1      1.973271     2.126652                0.000000
+25   1      2.325657     0.805631                0.000000
+26   1      0.930263     4.833788                0.000000
+27   1      2.438403     4.543546                0.000000
+28   1            2.790789     3.222525          0.000000
+0 0 0
+6.93   0         0
+0    11.6         0
+0         0    9.8400
+}
+Driver = ConjugateGradient {
+  MovedAtoms = Range {
+1 -1
+  }
+  MaxForceComponent = 1.0e-4
+  MaxSteps = 1000
+  OutputPrefix = "geo_opt"
+  Constraints = {}
+  AppendGeometries = No
+}
+Hamiltonian = DFTB {
+  SCC = Yes
+  SCCTolerance = 1.0e-5
+  MaxSCCIterations = 100
+  ReadinitialCharges = No
+  Charge = 0.0
+  Eigensolver = DivideAndConquer {}
+  Mixer = Broyden {
+    MixingParameter = 0.2
+    CachedIterations = -1
+    InverseJacobiWeight = 1.000000000000000E-002
+    MinimalWeight = 1.00000000000000
+    MaximalWeight = 100000.000000000
+    WeightFactor = 1.000000000000000E-002
+  }
+  SlaterKosterFiles = {
+    C-C = "/home/xbyang/dftb-run/sk/cc"
+  }
+  MaxAngularMomentum = {
+    C = "p"
+  }
+  KPointsAndWeights = SupercellFolding {
+8 0 0
+0 8 0
+0 0 1
+0.0 0.0 0.0
+  }
+  SpinPolarisation = {}
+  Filling = Fermi {
+    Temperature = 3.166815345246390E-004
+    IndependentKFilling = No
+  }
+  PolynomialRepulsive = {}
+  OrbitalResolvedSCC = No
+  OldSKInterpolation = No
+  ElectricField = {}
+  DampHShortRange = No
+  OrbitalPotential = {}
+  Dispersion = {}
+}
+Options = {
+  WriteEigenvectors = No
+  WriteAutotestTag = No
+  WriteDetailedXML = No
+  WriteResultsTag = No
+  WriteDetailedOut = Yes
+  WriteBandOut = Yes
+  AtomResolvedEnergies = No
+  RandomSeed = 0
+  WriteHS = No
+  WriteRealHS = No
+  MinimiseMemoryUsage = No
+}
+ParserOptions = {
+  ParserVersion = 3
+  WriteHSDInput = Yes
+  WriteXMLInput = No
+  StopAfterParsing = No
+  IgnoreUnprocessedNodes = No
+}

@@ -1,0 +1,54 @@
+Geometry = GenFormat {
+   <<<"geo_start.gen"
+}
+Driver = ConjugateGradient {
+  MovedAtoms = Range { 1 -1 }
+  MaxForceComponent = 1.0e-4
+  MaxSteps = 1000
+  OutputPrefix = "geo_opt"
+  Constraints = {}
+}
+
+Hamiltonian = DFTB {
+  SCC = Yes
+  SCCTolerance = 1.0e-5
+  MaxSCCIterations = 100
+  ReadinitialCharges = No
+  Charge = 0.0
+  Eigensolver = DivideAndConquer { }
+  Mixer = Broyden {
+    MixingParameter = 0.2
+  }
+  
+  SlaterKosterFiles = {
+    C-C ="/home/xbyang/dftb-run/sk/cc"       
+ } 
+                                  
+ MaxAngularMomentum = {             
+   C = "p"                          
+ }                                   
+
+KPointsAndWeights=SupercellFolding{
+ 8 0 0
+ 0 8 0
+ 0 0 1
+ 0.0 0.0 0.0
+ }
+  
+  SpinPolarisation = {}
+  Filling = Fermi {
+    Temperature [Kelvin] = 100.0
+  }
+  
+                        
+                                      
+}
+  
+Options = {}
+  
+ParserOptions = {
+  ParserVersion = 3
+}
+
+
+

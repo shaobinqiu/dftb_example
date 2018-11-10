@@ -1,0 +1,13 @@
+1
+The master node of this job is node09
+The working directory is /home/xbyang/dftb-run/sheet
+The node file is /var/chess/torque/aux//20728.chess_254.chess
+This job runs on the following 1 nodes:
+chess_009.chess
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+command to EXE:
+
+
+Mon Dec 20 09:17:16 CST 2010
+Mon Dec 20 09:19:40 CST 2010
